@@ -1,0 +1,24 @@
+{
+  "name": "Jason Barnett Blog",
+  "version": "0.0.1",
+  "authors": [
+    "Jason Barnett <jason.w.barnett@gmail.com>"
+  ],
+  "description": "Jason Barnett personal blog at knowitnot.com",
+  "license": "MIT",
+  "homepage": "http://knowitnot.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.0.2",
+    "font-awesome": "~4.0.3",
+    "nprogress": "~0.1.2",
+    "jquery-github": "~0.3.3"
+  }
+}

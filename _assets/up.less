@@ -1,0 +1,204 @@
+@import "bootstrap.less";
+@import "/bower_components/font-awesome/less/font-awesome.less";
+@import (less) "/bower_components/jquery-github/assets/base.css";
+@import "/_assets/pygments.less";
+@import (less) "/bower_components/nprogress/nprogress.css";
+
+// overrides
+@font-family-sans-serif: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-size-base: 20px;
+@navbar-default-bg: rgba(255, 255, 255, 0.800);
+@code-color: #002b36;
+@code-bg: #f0f0f0;
+@fa-font-path: "/css/font";
+@blue: #307ea9;
+@blockquote-border-color: #207ef0;
+
+
+body {
+  padding-top: @navbar-height + 10px;
+  line-height: 1.5;
+}
+h1,h2,h3,h4,h5,h6 {
+  margin-top: 40px;
+  text-align: left;
+  code {
+    text-transform: none;
+  }
+}
+#nprogress .bar,
+#nprogress .spinner {
+  z-index: 999999;
+}
+.noborder {
+  border: none;
+}
+.lowercase {
+  text-transform: lowercase;
+}
+.cover {
+  background: #333 no-repeat center center;
+  height: 400px;
+  width: 100%;
+  margin-top: -80px;
+  background-size: cover;
+  .box-shadow(inset 3px 3px 20px rgba(0,0,0,.5));
+  margin-bottom: 20px;
+}
+
+.projects {
+  width: 90%;
+  margin: 0 auto;
+  [data-repo] {
+    margin-bottom: 10px;
+  }
+  .github-box .github-box-download {
+    height: 40px !important;
+  }
+}
+
+article,
+.content {
+  height: 100%;
+  min-height: 100%;
+  padding: 10px;
+  text-align: justify;
+  max-width: 700px;
+  margin: auto;
+  font-weight: normal;
+  line-height: 31px;
+  .video,
+  img {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 70%;
+    max-height: 70%;
+    &.noclip {
+      clear: both;
+      display: inline-block;
+    }
+  }
+
+  h1:first-child {
+    margin-top: 20px;
+    font-weight: 800;
+    letter-spacing: 2px;
+  }
+  h1,h2,h3,h4,h5,h6{
+    .thin {
+      font-weight: 100;
+    }
+    .big {
+      font-size: 3em;
+    }
+    .upper {
+      text-transform: uppercase;
+    }
+  }
+  blockquote p {
+    font-size: @font-size-base + 2px;
+  }
+  .highlight pre {
+    font-size: @font-size-base - 5px;
+  }
+  section.byline {
+    font-size: 0.8em;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+    color: #999;
+  }
+  p, li {
+    color: #555;
+  }
+  &.about p,
+  &.error {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 100;
+  }
+  &.error h1 {
+    color: #f5f5f5;
+    font-size: 10em;
+    font-weight: bold;
+    padding: .5em;
+    text-shadow: 0px 1px 5px #aaa;
+  }
+  div.pull {
+    padding-top: 20px;
+  }
+}
+
+
+ul.listing {
+  margin: 0 0 25px 0;
+  padding: 0;
+  li {
+    list-style-type: none;
+    // padding: 7px 5px;
+    // border-bottom: 1px solid #EEE;
+    h4 a {
+      color: #333;
+      margin-top: 20px;
+    }
+    span {
+      padding-top: 3px;
+      float: right;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: #999;
+    }
+  }
+}
+
+nav.navbar-blog {
+  .box-shadow(0 0 1px #ccc);
+  a.navbar-brand {
+    font-weight: 100;
+    text-transform: uppercase;
+  }
+  ul.thin a {
+    font-weight: 100;
+  }
+  a {
+    text-shadow: 0px 0px 1px #fff;
+  }
+}
+
+#footer,
+nav.navbar-blog.navbar {
+  a {
+    color: #555;
+    text-decoration: none;
+    transition: color 0.15s ease-in;
+    -webkit-transition: color 0.15s ease-in;
+    &:hover {
+      color: @blue;
+    }
+  }
+}
+
+#footer {
+  margin-top: 50px;
+  border-top: 1px solid #f5f5f5;
+  section.meta {
+    padding: 30px;
+    color: #EEE;
+    text-align: center;
+    a {
+      font-size: 0.8em;
+    }
+  }
+  i.icon {
+    display: block;
+    margin: auto;
+  }
+}
+
+@media (max-width: 767px) {
+  #footer .col-span-2.next {
+    margin-top: 30px;
+  }
+}

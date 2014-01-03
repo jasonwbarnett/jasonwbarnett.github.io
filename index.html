@@ -1,0 +1,18 @@
+---
+layout: page
+title: "Blog"
+cover: "/img/blog-smaller.jpg"
+---
+
+<section class="content">
+  <ul class="listing">
+    {% for post in site.posts %}
+    <li>
+      <h4>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <span>{{ post.date | date: "%B %e, %Y" }}</span>
+      </h4>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

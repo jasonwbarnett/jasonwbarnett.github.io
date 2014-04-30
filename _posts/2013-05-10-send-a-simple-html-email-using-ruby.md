@@ -32,5 +32,5 @@ Net::SMTP.start('localhost', 25) do |smtp|
 end
 {% endhighlight %}
 
-[1]: http://www.ruby-doc.org/stdlib-1.9.3/libdoc/net/smtp/rdoc/Net/SMTP.html
+[1]: http://www.ruby-doc.org/stdlib-2.1.1/libdoc/net/smtp/rdoc/Net/SMTP.html
 [2]: http://rubygems.org/

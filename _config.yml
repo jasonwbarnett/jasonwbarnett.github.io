@@ -4,7 +4,7 @@ lsi: false
 pygments: true
 permalink: /:year/:month/:day/:title/
 title : Know It Not
-production_url : http://knowitnot.com
+production_url : http://www.knowitnot.com
 description: "Things you may want to know, but don't"
 disqus_shortname: knowitnotdotcom
 analytics: UA-37806223-1

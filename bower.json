@@ -6,7 +6,7 @@
   ],
   "description": "Jason Barnett personal blog at knowitnot.com",
   "license": "MIT",
-  "homepage": "http://knowitnot.com",
+  "homepage": "http://www.knowitnot.com",
   "private": true,
   "ignore": [
     "**/.*",

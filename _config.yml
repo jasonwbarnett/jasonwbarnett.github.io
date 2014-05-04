@@ -3,15 +3,24 @@ safe: true
 lsi: false
 pygments: true
 permalink: /:year/:month/:day/:title/
-title : Know It Not
-production_url : http://www.knowitnot.com
+title: "Know It Not"
+production_url: "http://www.knowitnot.com"
 description: "Things you may want to know, but don't"
-disqus_shortname: knowitnotdotcom
-analytics: UA-37806223-1
+disqus_shortname: "knowitnotdotcom"
+analytics: "UA-37806223-1"
 exclude: [ Gemfile, Gemfile.lock, gems, _assets, bower_components ]
-author :
-  name : Jason Barnett
-  github : jasonwbarnett
-  twitter : jasonwbarnett
-  facebook: jasonwbarnett
-  email: jason@knowitnot.com
+author:
+  name: "Jason Barnett"
+  twitter: "jasonwbarnett"
+  github: "jasonwbarnett"
+  facebook: "jasonwbarnett"
+  google_plus: "JasonBarnett-DevOps"
+  linkedin: "jasonwbarnett"
+  email: "jason@knowitnot.com"
+defaults:
+  -
+    scope:
+      path: "" # empty string for all files
+    values:
+      layout: "post"
+      author: "Jason Barnett"

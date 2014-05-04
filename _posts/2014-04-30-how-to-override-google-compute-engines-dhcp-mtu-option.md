@@ -32,12 +32,12 @@ wasn't able to find anything that worked. I tried multiple things until I stumbl
 the internet which showed (by observing) that options with numbers as values weren't surrounded in quotes.
 I removed the quotes from the option and BAM, it worked! Here is the final config that worked for me:
 
-``` bash
-# /etc/dhcp/dhclient-eth0.conf
+{% highlight bash %}
+# /etc/dhcp/dhclent-eth0.conf
 send vendor-class-identifier "anaconda-Linux 2.6.32-431.el6.x86_64 x86_64";
 timeout 45;
 supersede interface-mtu 1400;
-```
+{% endhighlight %}
 
 
 I highly suggest reading through the dhclient.conf man page.

@@ -1,13 +1,12 @@
 ---
-title: 'Parsing Tomcat&#8217;s server.xml using Ruby'
-author: Jason Barnett
-layout: post
+title: "Parsing Tomcat's server.xml using Ruby"
+layout: "post"
 categories:
   - Linux
   - Ruby
   - Tomcat
 ---
-I needed a tool to create a flat file database from Tomcat’s server.xml that I could then later reference when migrating sites, when creating a snapshot, etc. This is what I came up with:
+I needed a tool to create a flat file database from Tomcat's server.xml that I could then later reference when migrating sites, when creating a snapshot, etc. This is what I came up with:
 
 {% highlight ruby %}
 #!/usr/bin/ruby

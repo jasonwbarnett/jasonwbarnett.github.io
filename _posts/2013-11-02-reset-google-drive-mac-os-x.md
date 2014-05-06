@@ -15,7 +15,7 @@ I just recently was needing to change my Google Drive from using one Google acco
 2. Copy and paste the following commands:
 
 {% highlight ruby %}
-find ~/ -iname '*google*drive*' 2> /dev/null -exec rm -Rf {} \;
+find ~/ -maxdepth 1 -type d -iname '*google*drive*' 2> /dev/null -exec rm -Rf {} \;
 rm -Rf ~/Library/Application\ Support/Google/Drive
 {% endhighlight %}
 

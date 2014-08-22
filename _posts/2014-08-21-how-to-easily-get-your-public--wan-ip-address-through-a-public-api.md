@@ -22,7 +22,7 @@ only thing available at the .com level and made any sense at all was [myjsonip.c
 The goal initially was to create a site that would return my public IP in
 a JSON object. As I started working on it and moving forward, I decided to
 add additional formats. The site now support getting your IP address in JSON,
-YAML and XML. Furthermore, I dcided to open source the project. You can find
+YAML and XML. Furthermore, I decided to open source the project. You can find
 the source code on [github][2]. Enjoy! It's small, simple, versatile and fast.
 
 [1]: http://myjsonip.com/

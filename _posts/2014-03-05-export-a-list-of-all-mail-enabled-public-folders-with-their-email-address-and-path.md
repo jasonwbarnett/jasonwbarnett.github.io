@@ -9,13 +9,13 @@ categories:
   - Powershell
 ---
 
-First let me start off by saying, this is not a post to show off my powershell skills because let you, they suck and I have no desire to improve them.
+First let me start off by saying, this is not a post to show off my powershell skills because let me tell you, they suck and I have no desire to improve them.
 
-I ran into a slight problem at work this past month. We needed to provide a list of all of our Mail-Enabled Public Folder's email address and location  in order
+I ran into a slight problem at work this past month. We needed to provide a list of all of our Mail-Enabled Public Folder's email address and location in order
 that we could migrate them to Google Groups/Users. As I searched the internet, I quickly found that this wasn't an "easy" task in Exchange. I was in complete
-and utter shock that Exchange didn't have some quick way of doing this. The only built in options I could find where to either get all Public Folders (Get-PublicFolder) with their locations
-or to get all Mail-Enabled Folders (Get-MailPublicFolder) with their email address and no location. This of course is problematic when you need all Public Folder's email address
-+ location.
+and utter shock that Exchange didn't have some quick way of doing this. The only built in options I could find where to either get all Public Folders
+(`Get-PublicFolder`) with their locations or to get all Mail-Enabled Folders (`Get-MailPublicFolder`) with their email address and no location. This of course is
+problematic when you need all Public Folder's email address + location.
 
 I ended up combining a few powershell techniques I found across the internet to get the desired result. This little and simple powershell script will save a CSV with
 all of the Mail-Enabled Public Folders email address and location.

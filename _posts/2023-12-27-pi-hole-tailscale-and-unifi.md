@@ -32,60 +32,58 @@ This is a high level overview of all of the components used in the final design.
 - [StevenBlack/hosts][11]
 - [Gravity Sync][13]
 
-My initial setup comprised simply of two Pi-Hole servers operating on a
-pair of DigitalOcean Droplets, each in a different datacenter. I modified
-the DHCP options in my UDM-Pro to direct all DNS traffic to the public IP
-addresses of these DigitalOcean Droplets. To ensure minimal security, I
-implemented a basic firewall ruleset that restricted access to my home's public
-IP address. An important detail to remember: for this setup to function
-correctly, you need to enable "Permit all origins." This option can be found
-under **Settings** > **DNS** in the Pi-Hole interface.
+My initial setup comprised simply of two Pi-Hole servers operating on a pair of
+DigitalOcean Droplets, each in a different datacenter. I modified the DHCP
+options in my UDM-Pro to direct all DNS traffic to the public IP addresses of
+these DigitalOcean Droplets. To ensure minimal security, I implemented a basic
+firewall ruleset that restricted access to my home's public IP address. An
+important detail to remember: for this setup to function correctly, you need to
+enable "Permit all origins." This option can be found under **Settings** >
+**DNS** in the Pi-Hole interface.
 
-After setting up the infrastructure, I dedicated time to fine-tuning the
-Pi-Hole configuration, a tool I was using for the first time. My focus was
-on understanding the ad lists and exploring available options. During this
+After setting up the infrastructure, I dedicated time to fine-tuning the Pi-Hole
+configuration, a tool I was using for the first time. My focus was on
+understanding the ad lists and exploring available options. During this
 exploration, I discovered the popular [StevenBlack/hosts GitHub repository][11]
-and decided to use the [alternates/porn/hosts list][12] from it.  Additionally,
-I created a custom hosts file tailored to block specific Apple services that I
+and decided to use the [alternates/porn/hosts][12] from it.  Additionally, I
+created a custom hosts file tailored to block specific Apple services that I
 preferred not to have communicating back to their servers.
 
-While configuring my Pi-Hole servers, I realized the inefficiency of
-duplicating each setting on both servers. This redundancy prompted me to find a
-solution for syncing the configurations. The goal was to ensure that any changes
-made to the primary Pi-Hole would automatically replicate to the secondary
-one. My solution was [Gravity Sync][13], which, while not perfect due to some
-limitations in syncing upstream servers ([documented here][22]), proved to be
-significantly beneficial.
+While configuring my Pi-Hole servers, I realized the inefficiency of duplicating
+each setting on both servers. This redundancy prompted me to find a solution for
+syncing the configurations. The goal was to ensure that any changes made to the
+primary Pi-Hole would automatically replicate to the secondary one. My solution
+was [Gravity Sync][13], which, while not perfect due to some limitations in
+syncing upstream servers ([documented here][22]), proved to be significantly
+beneficial.
 
 Satisfied with the Minimum Viable Product (MVP) I had created, my attention
 shifted to concerns about unencrypted DNS traffic traversing the internet.
 Additionally, the lack of an SSL-secured admin interface for Pi-Hole was a
 downside, and I preferred not to get involved in SSL certificate management,
 despite the relative ease of using [Let's Encrypt][14] and [certbot][15]. To
-address these issues, I turned to Tailscale for end-to-end encryption. If
-you're unfamiliar with Tailscale, you can learn more about it [here][16].
+address these issues, I turned to Tailscale for end-to-end encryption. If you're
+unfamiliar with Tailscale, you can learn more about it [here][16].
 
-I began by installing Tailscale on the DigitalOcean Droplets and the
-devices within my home network. Subsequently, I updated the DHCP DNS settings to
-use the Tailscale IPv4 addresses, routing DNS traffic via Tailscale's
-end-to-end encrypted connection. However, this method had a significant
-limitation: devices without Tailscale couldn't access the DNS servers,
-resulting in DNS resolution failure. This was particularly problematic for
-devices on my network that couldn't install Tailscale.
+I began by installing Tailscale on the DigitalOcean Droplets and the devices
+within my home network. Subsequently, I updated the DHCP DNS settings to use the
+Tailscale IPv4 addresses, routing DNS traffic via Tailscale's end-to-end
+encrypted connection. However, this method had a significant limitation: devices
+without Tailscale couldn't access the DNS servers, resulting in DNS resolution
+failure. This was particularly problematic for devices on my network that
+couldn't install Tailscale.
 
-To overcome this, I explored integrating Tailscale with my UDM-Pro. My
-research led me to [SierraSoftworks/tailscale-udm][10] on GitHub. After sifting
-through various GitHub issues, I found a crucial [discussion][9] that detailed
-the process of setting up a UDM-Pro as a [Tailscale subnet router][18].
-This setup eliminated the need for individual Tailscale installations on
-each device.
+To overcome this, I explored integrating Tailscale with my UDM-Pro. My research
+led me to [SierraSoftworks/tailscale-udm][10] on GitHub. After sifting through
+various GitHub issues, I found a crucial [discussion][9] that detailed the
+process of setting up a UDM-Pro as a [Tailscale subnet router][18].  This setup
+eliminated the need for individual Tailscale installations on each device.
 
 Despite the GitHub discussion suggesting the use of a persistent bash script, I
-felt a more efficient approach would be to integrate support for UDM-Pro
-routing tables directly into Tailscale. This led me to fork Tailscale and start
-working on adding this functionality in my [jwb/add-support-for-udm-pro
-branch][23], rebased off of v1.56.1, which is the latest release as of this
-writing.
+felt a more efficient approach would be to integrate support for UDM-Pro routing
+tables directly into Tailscale. This led me to fork Tailscale and start working
+on adding this functionality in my [jwb/add-support-for-udm-pro branch][23],
+rebased off of v1.56.1, which is the latest release as of this writing.
 
 My next task was to ensure all devices on my network properly routed
 `100.64.0.0/10` ([What are these 100.x.y.z addresses?][19]) through the UDM-Pro.
@@ -97,20 +95,19 @@ you got me. It's encrypted from the edge of my private network to the the other
 end. So, edge-to-end encryption.
 
 Before proceeding further, it's worth mentioning that I disabled [Tailscale's
-key expiry][27] for both my UDM-Pro and the two DigitalOcean Droplets. This
-was a deliberate choice to ensure connectivity between my home network and the
-DNS servers is not disrupted.
+key expiry][27] for both my UDM-Pro and the two DigitalOcean Droplets. This was
+a deliberate choice to ensure connectivity between my home network and the DNS
+servers is not disrupted.
 
 Focusing next on DNS resolution within my [Tailnet][1], I aimed to move beyond
-just IP address-based connectivity between devices. Tailscale provides a
-handy feature by assigning a [Tailnet name][20] to each network, making access
-more user-friendly. My objective was to establish a conditional forwarder from
-Pi-Hole to Tailscale's private DNS server at `100.100.100.100`. Without a
-native Pi-Hole solution available, I opted for a manual configuration. This
-involved adding settings to `/etc/dnsmasq.d/02-tailscale.conf` on my setup,
-followed by restarting the `pihole-FTL` service (`systemctl restart
-pihole-FTL.service`). For those interested, you can find your own Tailnet name
-[here][24].
+just IP address-based connectivity between devices. Tailscale provides a handy
+feature by assigning a [Tailnet name][20] to each network, making access more
+user-friendly. My objective was to establish a conditional forwarder from
+Pi-Hole to Tailscale's private DNS server at `100.100.100.100`. Without a native
+Pi-Hole solution available, I opted for a manual configuration. This involved
+adding settings to `/etc/dnsmasq.d/02-tailscale.conf` on my setup, followed by
+restarting the `pihole-FTL` service (`systemctl restart pihole-FTL.service`).
+For those interested, you can find your own Tailnet name [here][24].
 
 ```text
 # /etc/dnsmasq.d/02-tailscale.conf
@@ -118,22 +115,22 @@ server=/hot-mess.ts.net/100.100.100.100
 ```
 
 With these configurations in place, my setup really started to come together. I
-now had a fully functional Pi-Hole DNS server. Traffic from my home network
-was being securely routed to my DNS Pi-Hole servers, and I could resolve Tailnet
+now had a fully functional Pi-Hole DNS server. Traffic from my home network was
+being securely routed to my DNS Pi-Hole servers, and I could resolve Tailnet
 names.  To further refine the system, I configured [DHCP Option 119][21] on my
 UDM-Pro, enabling short hostnames to resolve correctly to my Tailnet name.
 
 My next objective was to minimize what DigitalOcean could observe in terms of
 DNS traffic. At this point, all DNS queries from my home network were forwarded
-to Pi-Hole, then to an upstream DNS server (like `1.1.1.1`). However, this
-meant that traffic from the Droplets to the upstream servers was unencrypted. In
-my quest for DNS over HTTPS, I discovered Cloudflare's [cloudflared][8].
-Following their [Connect to 1.1.1.1 using DoH clients][8] guide, I set up a
-running DNS proxy service. Subsequently, I configured Pi-Hole to route DNS
-queries to this proxy by entering `127.0.0.1#5553` in the Custom Upstream DNS
-Servers section under **Settings** > **DNS**. It's important to note that the
-Cloudflare documentation omits the port in the systemd.unit file, which is
-crucial here since Pi-Hole binds to `UDP/53` and `TCP/53`.
+to Pi-Hole, then to an upstream DNS server (like `1.1.1.1`). However, this meant
+that traffic from the Droplets to the upstream servers was unencrypted. In my
+quest for DNS over HTTPS, I discovered Cloudflare's [cloudflared][8].  Following
+their [Connect to 1.1.1.1 using DoH clients][8] guide, I set up a running DNS
+proxy service. Subsequently, I configured Pi-Hole to route DNS queries to this
+proxy by entering `127.0.0.1#5553` in the Custom Upstream DNS Servers section
+under **Settings** > **DNS**. It's important to note that the Cloudflare
+documentation omits the port in the systemd.unit file, which is crucial here
+since Pi-Hole binds to `UDP/53` and `TCP/53`.
 
 ```
 # /etc/systemd/system/cloudflared-proxy-dns.service

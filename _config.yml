@@ -4,7 +4,7 @@ lsi: false
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
 title: "Know It Not"
-production_url: "http://www.knowitnot.com"
+production_url: "https://www.knowitnot.com"
 description: "Things you may want to know, but don't"
 disqus_shortname: "knowitnotdotcom"
 exclude: [Gemfile, Gemfile.lock, gems, _assets, bower_components]

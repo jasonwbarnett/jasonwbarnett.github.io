@@ -66,4 +66,4 @@ Switch ARP resolution off on one device
 
 `ip link set dev eth0 arp off`
 
-[1]: http://www.tty1.net/blog/2010/ifconfig-ip-comparison_en.html
+[1]: https://www.tty1.net/blog/2010/ifconfig-ip-comparison_en.html

@@ -58,7 +58,7 @@ task :icons do
   config = YAML.load_file('_config.yml')
   author_email = config['author']['email']
   gravatar_id = Digest::MD5.hexdigest(author_email)
-  base_url = "http://www.gravatar.com/avatar/#{gravatar_id}?s=150"
+  base_url = "https://www.gravatar.com/avatar/#{gravatar_id}?s=150"
 
   origin = "origin.png"
   File.delete origin if File.exist? origin
@@ -89,5 +89,3 @@ task :icons do
   puts "Cleaning up..."
   File.delete origin
 end
-
-

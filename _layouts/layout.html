@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article">
+<html lang="en" prefix="og: https://ogp.me/ns# article: https://ogp.me/ns/article">
+
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,9 +17,8 @@
   <meta name="author" content="{{ site.author.name }}">
 
   {% if page.date %}
-  <meta property="article:published_time" content="{{ page.date | date: "%Y-%m-%d" }}">
-  <meta name="description"
-    content="{{ page.content | strip_html | truncatewords: 30 | strip_newlines | escape_once }}">
+  <meta property="article:published_time" content="{{ page.date | date: " %Y-%m-%d" }}">
+  <meta name="description" content="{{ page.content | strip_html | truncatewords: 30 | strip_newlines | escape_once }}">
   <meta property="og:description"
     content="{{ page.content | strip_html | truncatewords: 30 | strip_newlines | escape_once }}">
   <meta name="twitter:description"
@@ -40,11 +40,7 @@
   <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
   <link href="/css/up.css" rel="stylesheet">
 
-  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'
-    rel='stylesheet' type='text/css'>
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
 
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144-precomposed.png">
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114-precomposed.png">
@@ -92,4 +88,5 @@
   {% include gauges.html %}
 </body>
 <script src="/js/up.min.js"></script>
+
 </html>

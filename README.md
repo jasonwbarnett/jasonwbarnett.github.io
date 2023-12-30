@@ -1,4 +1,4 @@
-# [My personal blog](http://www.knowitnot.com)
+# [My personal blog](https://www.knowitnot.com)
 
 Deployable on Github Pages
 

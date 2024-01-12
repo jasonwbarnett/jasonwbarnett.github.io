@@ -7,7 +7,17 @@ categories:
   - Linux
   - MySQL
 ---
-So, just as many smart people in the world do, when I needed a MySQL backup script, I first googled it. To my surprise, I couldn’t find a single script that fit my needs. They were either far too basic (e.g. simple mysqldump without any kind of error reporting) or an entire program that needed to be deployed, configured and setup (e.g. Zmanda). I set out to write a bash script that was easy enough for someone to use who didn’t have the depth and knowledge of a Linux/Bash, but also could be used by a sysadmin who wanted something simple and quick to deploy. I think that I’ve accomplished just that, but I’ll let you be the judge. The source code (at the time of writing) can be found below or the latest at [github][1].
+
+So, just as many smart people in the world do, when I needed a MySQL backup
+script, I first googled it. To my surprise, I couldn’t find a single script that
+fit my needs. They were either far too basic (e.g. simple mysqldump without any
+kind of error reporting) or an entire program that needed to be deployed,
+configured and setup (e.g. Zmanda). I set out to write a bash script that was
+easy enough for someone to use who didn’t have the depth and knowledge of a
+Linux/Bash, but also could be used by a sysadmin who wanted something simple and
+quick to deploy. I think that I’ve accomplished just that, but I’ll let you be
+the judge. The source code (at the time of writing) can be found below or the
+latest at [github][1].
 
 {% highlight bash %}
 #!/bin/bash

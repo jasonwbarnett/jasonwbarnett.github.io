@@ -6,7 +6,12 @@ categories:
   - Quick Notes
   - Ruby
 ---
-I am always writing little programs that require the end user to provide a password. One of the biggest problems is that the common methods for receiving user input ends up echoing everything typed in clear text for all to see. I was able to solve this little problem with a quick google search and I wanted to share for all to see.
+
+I am always writing little programs that require the end user to provide a
+password. One of the biggest problems is that the common methods for receiving
+user input ends up echoing everything typed in clear text for all to see. I was
+able to solve this little problem with a quick google search and I wanted to
+share for all to see.
 
 {% highlight ruby %}
 require 'io/console'

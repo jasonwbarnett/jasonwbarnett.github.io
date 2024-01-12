@@ -6,7 +6,10 @@ categories:
   - Ruby
   - Tomcat
 ---
-I needed a tool to create a flat file database from Tomcat's server.xml that I could then later reference when migrating sites, when creating a snapshot, etc. This is what I came up with:
+
+I needed a tool to create a flat file database from Tomcat's server.xml that I
+could then later reference when migrating sites, when creating a snapshot, etc.
+This is what I came up with:
 
 {% highlight ruby %}
 #!/usr/bin/ruby

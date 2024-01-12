@@ -4,16 +4,18 @@ title: "How to override Google Compute Engine's DHCP MTU Option"
 category: posts
 ---
 
-Recently I ran into a few issues with a linux IPSec Tunnel (Strongswan) that was hosted at GCE. With the
-suggestion of one of Google's engineers, I thought that it might have something to do with the MTU.
-Google's compute engine network MTU is 1460.
+Recently I ran into a few issues with a linux IPSec Tunnel (Strongswan) that was
+hosted at GCE. With the suggestion of one of Google's engineers, I thought that
+it might have something to do with the MTU.  Google's compute engine network MTU
+is 1460.
 
 > *"For best performance, set MTU to 1460. Google Compute Engine's DHCP server will serve this parameter as the interface-mtu option, which most clients respect."*
 >
 > source: https://developers.google.com/compute/docs/images
 
-I decided to drop it to 1400 in order to give the Strongswan host some additional headroom on the GCE network side.
-It ended up being difficult to override the MTU. I attempted to set the `MTU` option in the
+I decided to drop it to 1400 in order to give the Strongswan host some
+additional headroom on the GCE network side.  It ended up being difficult to
+override the MTU. I attempted to set the `MTU` option in the
 `/etc/sysconfig/network-scripts/ifcfg-eth0` script like so:
 
 ```
@@ -26,11 +28,13 @@ ONBOOT="yes"
 TYPE="Ethernet"
 ```
 
-That wasn't working though, so I needed to somehow override the dhcp options being offered. I had never
-messed with the linux dhcp client (`dhclient`) so into the man pages we go! I read through them, but
-wasn't able to find anything that worked. I tried multiple things until I stumbled upon a random config on
-the internet which showed (by observing) that options with numbers as values weren't surrounded in quotes.
-I removed the quotes from the option and BAM, it worked! Here is the final config that worked for me:
+That wasn't working though, so I needed to somehow override the dhcp options
+being offered. I had never messed with the linux dhcp client (`dhclient`) so
+into the man pages we go! I read through them, but wasn't able to find anything
+that worked. I tried multiple things until I stumbled upon a random config on
+the internet which showed (by observing) that options with numbers as values
+weren't surrounded in quotes.  I removed the quotes from the option and BAM, it
+worked! Here is the final config that worked for me:
 
 {% highlight bash %}
 # /etc/dhcp/dhclent-eth0.conf

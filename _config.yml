@@ -1,7 +1,7 @@
-markdown: rdiscount
+markdown: kramdown
 safe: true
 lsi: false
-pygments: true
+highlighter: rouge
 permalink: /:year/:month/:day/:title/
 title: "Know It Not"
 production_url: "http://www.knowitnot.com"

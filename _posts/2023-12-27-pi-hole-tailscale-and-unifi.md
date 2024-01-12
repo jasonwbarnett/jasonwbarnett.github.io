@@ -176,7 +176,7 @@ isn't fully privacy-proof. Some remaining privacy concerns include:
 - My ISP can still detect the destination IP addresses of my traffic.
 
 Thank you for reading. If you have any feedback, comments, or need assistance,
-please feel free to reach out on this [reddit post][30].
+please feel free to leave a comment.
 
 [1]: https://tailscale.com/kb/1136/tailnet/
 [2]: https://www.digitalocean.com/products/droplets
@@ -206,4 +206,3 @@ please feel free to reach out on this [reddit post][30].
 [27]: https://tailscale.com/kb/1028/key-expiry
 [28]: https://www.cloudflare.com/learning/ssl/what-is-sni/
 [29]: https://www.cloudflare.com/privacypolicy/
-[30]: https://www.reddit.com/r/pihole/comments/18su9du/story_time_pihole_tailscale_and_unifi_udmpro/

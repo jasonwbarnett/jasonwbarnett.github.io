@@ -11,10 +11,8 @@ analytics: "UA-37806223-1"
 exclude: [ Gemfile, Gemfile.lock, gems, _assets, bower_components ]
 author:
   name: "Jason Barnett"
-  twitter: "jasonwbarnett"
+  twitter: "jwbiam1"
   github: "jasonwbarnett"
-  facebook: "jasonwbarnett"
-  google_plus: "JasonBarnett-DevOps"
   linkedin: "jasonwbarnett"
   email: "jason@knowitnot.com"
 defaults:

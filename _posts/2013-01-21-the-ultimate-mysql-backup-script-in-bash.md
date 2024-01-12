@@ -24,7 +24,7 @@ MYSQL_BACKUP_VERSION=1.0
 ##    -root's home is /root
 ##    -MySQL Server version is >= 5.1.2 (That's when the whole --routines switch was added to mysqldump)
 ##    -crontab is configured to email you, help can be found here:
-##      http://www.cyberciti.biz/faq/linux-unix-crontab-change-mailto-settings/
+##      https://www.cyberciti.biz/faq/linux-unix-crontab-change-mailto-settings/
 ##
 ##  How to use this script:
 ##  -----------------------

@@ -25,6 +25,5 @@ add additional formats. The site now support getting your IP address in JSON,
 YAML and XML. Furthermore, I decided to open source the project. You can find
 the source code on [github][2]. Enjoy! It's small, simple, versatile and fast.
 
-[1]: http://myjsonip.com/
+[1]: https://myjsonip.com/
 [2]: https://github.com/jasonwbarnett/myjsonip.com-go
-

@@ -93,6 +93,6 @@ containers.each do |container|
 end
 {% endhighlight %}
 
-[1]: http://www.rackspace.com/cloud/files/
-[2]: http://aws.amazon.com/s3/
+[1]: https://www.rackspace.com/cloud/files/
+[2]: https://aws.amazon.com/s3/
 [3]: https://github.com/fog/fog

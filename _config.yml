@@ -7,8 +7,7 @@ title: "Know It Not"
 production_url: "http://www.knowitnot.com"
 description: "Things you may want to know, but don't"
 disqus_shortname: "knowitnotdotcom"
-analytics: "UA-37806223-1"
-exclude: [ Gemfile, Gemfile.lock, gems, _assets, bower_components ]
+exclude: [Gemfile, Gemfile.lock, gems, _assets, bower_components]
 author:
   name: "Jason Barnett"
   twitter: "jwbiam1"
@@ -16,8 +15,7 @@ author:
   linkedin: "jasonwbarnett"
   email: "jason@knowitnot.com"
 defaults:
-  -
-    scope:
+  - scope:
       path: "" # empty string for all files
     values:
       layout: "post"

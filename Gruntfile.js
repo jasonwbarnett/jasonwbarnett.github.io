@@ -1,9 +1,9 @@
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     curl: {
       turbolinks: {
-        src: 'https://raw.github.com/rails/turbolinks/master/lib/assets/javascripts/turbolinks.js.coffee',
+        src: 'https://raw.githubusercontent.com/turbolinks/turbolinks-classic/master/lib/assets/javascripts/turbolinks.coffee',
         dest: '_assets/turbolinks.coffee'
       }
     },

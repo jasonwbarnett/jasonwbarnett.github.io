@@ -6,44 +6,73 @@ cover: "/img/about-smaller.jpg"
 
 # About Me
 
-Hey there! I'm Jason Barnett, the outgoing tech enthusiast with a knack for
-solving complex problems. My journey has taken some interesting twists and
-turns, but it's all led to where I am today. It all started back in high school
-at the ripe age of 16 when I joined forces with my dad as a local "computer
-repair wizard." From there, I spread my wings and launched my own business,
-zipping around the San Francisco Bay Area fixing just about anything I could get
-my hands on.
+I'm Jason Barnett, a Principal Developer Experience Engineer at [Altana][4].
 
-But life had more adventures in store for me. I crossed paths with [Mindjet][1]
-(formerly [Spigit][2], a cool software company all about helping organizations
-crowdsource ideas. I became part of their Technical Operations Team, where I
-dabbled in all things infrastructure automation.
+I got started in tech at 16 doing computer repair with my dad, then went out on
+my own running a small business fixing machines around the San Francisco Bay
+Area. That hands-on foundation eventually led me into infrastructure and
+operations work at [Mindjet][1] (formerly [Spigit][2], now part of
+[Planview IdeaPlace][3]), where I worked on their Technical Operations team
+doing infrastructure automation.
 
-Fast forward to September 2015, and [Bridgewater][2] came knocking on my digital
-door. I joined their ranks in November of the same year, and boy, did I wear
-many hats during my time there. It was a place that pushed me to grow in ways I
-never expected, both professionally and personally. I'm forever grateful for the
-experience and the fantastic friendships I formed.
+In November 2015 I joined [Bridgewater][5]. I wore a lot of hats there and it
+pushed me to grow in ways I hadn't anticipated. I'm grateful for the experience
+and the people I met.
 
-And now, the latest chapter: I've landed at [Altana][4] as a Principal SRE. It's
-the first time I've been genuinely proud of a company's mission. The work and
-the people I'm surrounded by at Altana have got me pumped!
+I've been at [Altana][4] for a while now, and it's the first company I've worked
+at where I'm genuinely proud of the mission.
 
-I'm super passionate about tackling tough technical challenges. I thrive on
-problem-solving and relish sinking my teeth into fresh, mind-bending puzzles.
-Call me a bit of a perfectionist – if I'm working on something, you better
-believe I'm going to do it right the first time. No cutting corners for me!
+## Open Source
 
-But enough about yours truly. Let's dive into why this site exists. I built it
-with a couple of goals in mind: to sharpen my writing skills and to share tech
-knowledge that might make the world a better place. Whether it's diving deep
-into complex tech solutions or breaking things down for the not-so-tech-savvy,
-I'm here to help.
+Contributing to open source has been one of the more consistently satisfying
+parts of my career. It started around 2015 and has never really stopped.
 
-So, there you have it – a bit about me and the mission behind this digital
-adventure. Thanks for stopping by!
+One that sticks with me from early on is the `:create`, `:delete`, and
+`:configure` actions I added to Chef's [windows_service resource][chef-windows-svc].
+The resource already existed, but its only Windows-specific action was
+`:configure_startup`; you could start, stop, enable, or disable a service via
+inherited actions, but you couldn't create or delete one. At Bridgewater we
+needed to actually create and delete services from Chef, and we were doing
+increasingly convoluted PowerShell workarounds to get there. Adding those actions natively meant the workarounds
+just went away, for us and for anyone else in the same situation. It ended up
+getting mentioned at ChefConf and in some intro videos, which was a bit of a
+surreal moment. I was one of the top 50 contributors to Chef's core around that
+time.
+
+Since then the contributions have followed whatever I was working on or running
+into. Some highlights:
+
+- **[Tailscale][tailscale]** — added routing support for Ubiquiti UniFi UDM-Pro
+  devices, which affected me directly and apparently a lot of other people
+- **[Pants][pants]** — module mappings for third-party libraries and workunit
+  logging improvements
+- **[Netdata][netdata]** — RPM packaging, EL6/EL7 support, and a handful of
+  monitoring fixes back when I was running a lot of self-hosted infrastructure
+- **[Buildkite Test Collector][bk-collector]** — fixed a JSON corruption race
+  condition that showed up when multiple pytest processes tried to merge results
+  concurrently
+- **[Coder][coder]** — fixed a concurrent OAuth token refresh race condition that
+  could cause cache poisoning with single-use refresh tokens
+
+The pattern is pretty consistent: I hit something broken or missing, fix it, and
+send it upstream. It's a good habit.
+
+## This site
+
+I built this site to sharpen my writing and share technical things I run into
+that might be useful to others. Sometimes that means going deep on a specific
+problem; sometimes it means writing something up the way I wish I'd found it
+when I was searching.
 
 [1]: https://www.mindjet.com/
 [2]: https://www.spigit.com/
-[3]: https://www.bridgewater.com/
+[3]: https://www.planview.com/products-solutions/products/ideaplace/
 [4]: https://altana.ai/
+[5]: https://www.bridgewater.com/
+[chef]: https://github.com/chef/chef
+[chef-windows-svc]: https://github.com/chef/chef/commit/b1b889406efaf65940726c5f6ee2316b785fa600
+[tailscale]: https://github.com/tailscale/tailscale
+[pants]: https://github.com/pantsbuild/pants
+[netdata]: https://github.com/netdata/netdata
+[bk-collector]: https://github.com/buildkite/test-collector-python
+[coder]: https://github.com/coder/coder

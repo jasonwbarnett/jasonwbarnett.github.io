@@ -4,7 +4,9 @@ title: "Anthropic ships fast: from feature request to merged in days"
 category: posts
 ---
 
-This is a story about what good developer support looks like, and why it makes me believe Anthropic isn't just going to be around in twelve months, but is the kind of company that compounds over time.
+This is a story about what it looks like when the people who build a product are
+directly reachable, and why it makes me believe Anthropic isn't just going to be
+around in twelve months, but is the kind of company that compounds over time.
 
 ## The problem: tmux-resurrect and Claude sessions
 
@@ -52,7 +54,7 @@ read /proc/<pid>/stat tpgid
 
 All four failing scenarios resolved. The shared-session case worked correctly because the file is per-pid, not per-session.
 
-## What I actually asked support
+## What I actually asked
 
 Even though the discovery solved the immediate problem, I had real questions before I could depend on this in tooling:
 
@@ -74,15 +76,15 @@ Less than 24 hours later, a follow-up: **"we just merged `claude agents --json` 
 
 The `--json` output gives you `pid` and `sessionId` with an additive-only commitment and already filters to live processes, so consumers don't need to think about cleanup at all.
 
-I filed a support thread on a Saturday morning. By Tuesday, three days later, a new subcommand was merged and on its way to shipping. That's a turnaround I'd expect from a three-person startup, not a company building frontier AI models at scale.
+I posted on a Saturday morning. By Tuesday, three days later, a new subcommand was merged and on its way to shipping. That's a turnaround I'd expect from a three-person startup, not a company building frontier AI models at scale.
 
 ## Why this matters beyond the feature
 
 The speed is impressive. But what actually signals something deeper is *how* it happened.
 
-The team member I talked to didn't just answer my questions. They explained the internal design (why the files exist, what `procStart` is for), flagged the limitation honestly ("not a documented API today"), and then brought the ask to the right people rather than closing the ticket. And whoever picked it up on the other end decided "this is worth a first-class CLI surface" rather than just writing a doc comment and calling it done.
+After I shared this post, the person I talked to pointed out something I hadn't fully appreciated: there is no support team on the other side. The reason they could move so fast is that job functions are collapsing at Anthropic. The person who answered my questions was the same person who could push to main. They just needed a quick review from the Claude Code team and it was done.
 
-That's a specific kind of organizational behavior that's hard to fake: people who understand their system deeply, communicate that understanding clearly, and have enough latitude to turn a user request into a real improvement quickly. It's the kind of thing that's either baked into how a company operates or it isn't, and you can't bolt it on later.
+That distinction matters. It's not "support escalated to engineering." It's that the people who build the product are directly reachable, understand it deeply, and have the latitude to act on what they hear. When I described the problem, the person I was talking to already knew exactly what the files were for, how cleanup worked, and what the right long-term surface should be, because they built it.
 
 I've worked with a lot of developer tools over the years. The ones that compound, the ones that are still the dominant choice five years after they launched, almost always have this quality early: they treat the gap between "user found a workaround" and "user has a real API" as a bug, not a feature request backlog item.
 

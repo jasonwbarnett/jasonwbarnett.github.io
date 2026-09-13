@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "connect": "3.7.0",
-    "grunt": "~1.6.1",
+    "grunt": "~1.6.3",
     "grunt-contrib-coffee": "~2.1.0",
     "grunt-contrib-concat": "~2.1.0",
     "grunt-contrib-copy": "~1.0.0",
